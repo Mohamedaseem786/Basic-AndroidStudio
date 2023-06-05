@@ -1,7 +1,3 @@
-Exp: 2a
-
-Date: 09.09.2022
-
 # Ex.No:2a Implicit Intent
 
 Develop program to create a text field and a button “Navigate”. When you enter “www.google.com” and press navigate button it should open google page using Implicit Intents.
@@ -35,105 +31,89 @@ Step 7: Save and run the application.
 ```
 /*
 Program to print the text “Implicit Intent”.
-Developed by: MOHAMED ASEEM P
-Registeration Number : 212221230063
+Developed by:P MOHAMED ASEEM 
+Registeration Number :212221230063
 */
 ```
-## activity_main.xml
-```xml
+### MainActivity.java
+```
+package com.example.project2;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.net.Uri;
+
+public class MainActivity extends AppCompatActivity {
+    EditText edit1;
+    Button Button1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        edit1 = findViewById(R.id.edit1);
+        Button1 = findViewById(R.id.Button1);
+
+        Button1.setOnClickListener(view ->{
+            String  url = edit1.getText().toString();
+            Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+            startActivity(intent);
+        });
+
+    }
+}
+```
+### activity_main.xml
+```
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+<TextView
+    android:id="@+id/txtView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Enter the website link"
+
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="300dp"
+    android:textSize="25sp"
+    android:textStyle="bold"
+/>
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_height="40dp"
+        android:layout_width="250dp"
+        android:hint="Enter here"
+        android:layout_below="@+id/txtView1"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/Button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="20sp"
-        android:text="@string/enter_a_link"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
+        android:text="Search"
+        android:layout_below="@+id/edit1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
-
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="95dp"
-        android:layout_height="45dp"
-        android:backgroundTint="@color/black"
-        android:onClick="search"
-        android:text="@string/search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.075"
-        tools:ignore="OnClick" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-```
-## MainActivity.java
-```java
-package com.example.implicit_intent;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        EditText editText;
-        Button button;
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        button=findViewById(R.id.btn);
-        editText=(EditText) findViewById(R.id.editText);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String url=editText.getText().toString();
-                Intent intent= new Intent(Intent.ACTION_VIEW,Uri.parse(url));
-                startActivity(intent);
-            }
-        });
-    }
+</RelativeLayout>
 ```
 ## OUTPUT
-![](01.PNG)
 
-![](02.PNG)
+<img width="1009" alt="Screenshot 2022-09-24 at 10 32 04 PM" src="https://user-images.githubusercontent.com/93427224/192110133-ef104498-0b6f-435f-a50d-8d3f73c727ab.png">
 
-![](03.PNG)
+<img width="1008" alt="Screenshot 2022-09-24 at 10 32 29 PM" src="https://user-images.githubusercontent.com/93427224/192110158-b07bdb2f-120b-475a-93f0-bf9ef138e202.png">
+
 
 ## RESULT
 Thus a Simple Android Application to open google page using Implicit Intents using Android Studio is developed and executed successfully.
