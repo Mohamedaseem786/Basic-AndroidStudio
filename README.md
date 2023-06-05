@@ -1,8 +1,16 @@
+# EXPERIMENT 1 Ex.No: 1 Write a program to create a HelloWorld Activity using all lifecycles methods to display messages.
+
+# AIM
+   TO  Write a program to create a HelloWorld Activity using all lifecycles methods to display messages.
+
+# REQUIRED
+  ANDROID STUDIO
+
 # Basic-AndroidStudio
 ### Program:
 ~~~
-Developed By: Ragul V K
-Register Number: 212221240043
+Developed By:mohamed aseem p
+Register Number: 212221230063
 ~~~
 ### MainActivity.java:
 ~~~
